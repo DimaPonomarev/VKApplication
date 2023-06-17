@@ -46,7 +46,7 @@ class AuthViewController: UIViewController, AppDelegateProtool {
     }
     
     func openFeedViewController() {
-        let nextVC = FeedViewController()
+        let nextVC = NewsFeedViewController()
         navigationController?.pushViewController(nextVC, animated: true)
         print(#function)
 
