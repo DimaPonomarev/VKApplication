@@ -14,10 +14,12 @@ final class NewsFeedTableViewCell: UITableViewCell {
         return String(describing: self)
     }
     
+    var statusLike = false
+    
     //MARK: - UI properties
     
     let userNameLabel = UILabel()
-    let imageFeed = UIImageView()
+    let imageFeed = WebImageView()
     let dateLabel = UILabel()
     let userNameAndDateStackView = UIStackView()
     let descriptionLabel = UILabel()
@@ -31,11 +33,8 @@ final class NewsFeedTableViewCell: UITableViewCell {
     let seenStackView = UIStackView()
     let seenImageView = UIImageView()
     var numberOfSeen = UILabel()
-
-
-    var statusLike = false
-    
-    //MARK: init
+        
+    //MARK: - init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,27 +45,25 @@ final class NewsFeedTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - Public Methods
     
-    func configureView(_ model: Cell) {
-        dateLabel.text = model.date
-        descriptionLabel.text = model.description
-        numberOfLikes.text = model.likes
-        numberOfSeen.text = model.seen
-        numberOfComments.text = model.comments
-        numberOfShares.text = model.shares
+    func configureView(_ itemModel: CellItems) {
+        dateLabel.text = itemModel.date
+        descriptionLabel.text = itemModel.description
+        numberOfLikes.text = itemModel.likes
+        numberOfSeen.text = itemModel.seen
+        numberOfComments.text = itemModel.comments
+        numberOfShares.text = itemModel.shares
+        imageFeed.set(imageUrl: itemModel.photo)
+        userNameLabel.text = itemModel.name
     }
-    
 }
 
 //MARK: - Private methods
 
 private extension NewsFeedTableViewCell {
     
-    //MARK: - Setup
-    
-    //TODO: setup UI
+    //MARK: - setup UI
     
     func setup() {
         setupViews()
@@ -77,6 +74,7 @@ private extension NewsFeedTableViewCell {
     //MARK: - addViews
     
     func addViews() {
+        
         contentView.addSubview(imageFeed)
         contentView.addSubview(userNameAndDateStackView)
         userNameAndDateStackView.addArrangedSubview(userNameLabel)
@@ -146,7 +144,7 @@ private extension NewsFeedTableViewCell {
         
         shareButton.setImage(UIImage(named: "share"), for: .normal)
         numberOfShares.textColor = .gray
-
+        
         bottomActionListStackView.axis = .horizontal
         bottomActionListStackView.spacing = 10
         bottomActionListStackView.distribution = .equalSpacing
@@ -159,7 +157,9 @@ private extension NewsFeedTableViewCell {
         seenStackView.spacing = 7
     }
     
-        @objc func click() {
+    //MARK: - objc Methods
+
+    @objc func click() {
         switch statusLike {
         case false:
             likeDislikeButton.setImage(UIImage(named: "likeheart"), for: .normal)

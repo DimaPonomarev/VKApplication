@@ -8,31 +8,33 @@
 import UIKit
 
 enum NewsFeed {
-   
-  enum Model {
-    struct Request {
-      enum RequestType {
-          case getData
-      }
+    
+    enum Model {
+        struct Request {
+            enum RequestType {
+                case getData
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case presentNewsFeed(feedResponse: FeedResponse)
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case showNewsFeed(viewModel: FeedCell)
+            }
+        }
     }
-    struct Response {
-      enum ResponseType {
-          case presentNewsFeed(feedResponse: FeedResponse)
-      }
-    }
-    struct ViewModel {
-      enum ViewModelData {
-          case showNewsFeed(viewModel: FeedCell)
-      }
-    }
-  }
 }
 
 struct FeedCell {
-    let cell: [Cell]
+    let cell: [CellItems]
 }
 
-struct Cell {
+struct CellItems {
+    let photo: String
+    let name: String
     let userImage: String
     let date: String
     let description: String
@@ -40,4 +42,13 @@ struct Cell {
     let comments: String
     let shares: String
     let seen: String
+}
+
+struct CellProfiles {
+    let photo: String
+    let name: String
+}
+struct CellGroups {
+    let photo: String
+    let name: String
 }

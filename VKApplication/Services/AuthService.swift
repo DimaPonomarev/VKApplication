@@ -22,9 +22,7 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     weak var delegate: AuthServiceProtocol?
     
     var token: String? {
-        
         return VKSdk.accessToken().accessToken
-        
     }
     
     override init() {
@@ -34,6 +32,9 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
         vkSdk.register(self)
         vkSdk.uiDelegate = self
     }
+    
+    
+    // MARK: - determination of current session
     
     func wakeUpSession() {
         

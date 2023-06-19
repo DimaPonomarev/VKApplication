@@ -93,20 +93,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceProtocol {
     
     func authServiceShouldShow(_ viewController: UIViewController) {
         delegateAppDelegate.openVKAuthViewController(viewController)
-        print(#function)
-        
     }
     
     func authServiceSignIn() {
         delegateAppDelegate.openFeedViewController()
-        print(#function)
-        
-        
     }
     
     func authServiceDidSignInFail() {
         print(#function)
-        
     }
 }
 

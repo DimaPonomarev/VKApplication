@@ -19,9 +19,11 @@ struct NetworkDataFetcher: DataFetcherProtocol {
         self.network = network
     }
     
+    //MARK: - make a request from network and parse to model used in app (FeedResponeWrapped)
+    
     func getFeed(response: @escaping (FeedResponse?) -> Void) {
         let params = ["filters": "post"]
-
+        
         network.request(path: API.newsFeed, params: params) { data, error in
             if let error = error {
                 print("Error recieve requesting data \(error.localizedDescription)")
@@ -32,11 +34,12 @@ struct NetworkDataFetcher: DataFetcherProtocol {
             response(decoded?.response)
         }
     }
+    //MARK: - parse Json data
     
     private func decodeJson<T: Decodable>(type: T.Type, from data: Data?) -> T? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let data = data, let response = try? decoder.decode(type.self, from: data) else { return nil }
-            return response
+        return response
     }
 }

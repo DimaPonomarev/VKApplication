@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4ACC87AE2A3D8A6500206535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87AD2A3D8A6500206535 /* AppDelegate.swift */; };
 		4ACC87B02A3D8A6500206535 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87AF2A3D8A6500206535 /* SceneDelegate.swift */; };
-		4ACC87B22A3D8A6500206535 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87B12A3D8A6500206535 /* ViewController.swift */; };
 		4ACC87B82A3D8A6500206535 /* VKApplication.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87B62A3D8A6500206535 /* VKApplication.xcdatamodeld */; };
 		4ACC87BA2A3D8A6600206535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ACC87B92A3D8A6600206535 /* Assets.xcassets */; };
 		4ACC87BD2A3D8A6600206535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ACC87BB2A3D8A6600206535 /* LaunchScreen.storyboard */; };
@@ -28,6 +27,7 @@
 		4ACC87E02A3D986900206535 /* NewsFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87D92A3D986800206535 /* NewsFeedInteractor.swift */; };
 		4ACC87E32A3D98B000206535 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87E22A3D98B000206535 /* NewsFeedTableViewCell.swift */; };
 		4ACC87E52A3D98E300206535 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87E42A3D98E300206535 /* Assembly.swift */; };
+		4ACC87E72A40541500206535 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC87E62A40541500206535 /* WebImageView.swift */; };
 		EFF68689566CFCF6951ABD41 /* Pods_VKApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91777E44D621961565EE4206 /* Pods_VKApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,6 @@
 		4ACC87AA2A3D8A6500206535 /* VKApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ACC87AD2A3D8A6500206535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ACC87AF2A3D8A6500206535 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4ACC87B12A3D8A6500206535 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4ACC87B72A3D8A6500206535 /* VKApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VKApplication.xcdatamodel; sourceTree = "<group>"; };
 		4ACC87B92A3D8A6600206535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ACC87BC2A3D8A6600206535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		4ACC87D92A3D986800206535 /* NewsFeedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedInteractor.swift; sourceTree = "<group>"; };
 		4ACC87E22A3D98B000206535 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		4ACC87E42A3D98E300206535 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		4ACC87E62A40541500206535 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		91777E44D621961565EE4206 /* Pods_VKApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B02D3ACB18D75EDD8F03C2 /* Pods-VKApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplication.debug.xcconfig"; path = "Target Support Files/Pods-VKApplication/Pods-VKApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D332A941E9734D377A5DFC /* Pods-VKApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplication.release.xcconfig"; path = "Target Support Files/Pods-VKApplication/Pods-VKApplication.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,13 +104,12 @@
 			children = (
 				4ACC87AD2A3D8A6500206535 /* AppDelegate.swift */,
 				4ACC87AF2A3D8A6500206535 /* SceneDelegate.swift */,
-				4ACC87B12A3D8A6500206535 /* ViewController.swift */,
 				4ACC87C42A3D8B5B00206535 /* AuthViewController.swift */,
 				4ACC87C82A3D8BF100206535 /* PostModel.swift */,
 				4ACC87C62A3D8BA100206535 /* News.swift */,
 				4ACC87D32A3D914D00206535 /* NewsFeed */,
 				4ACC87CA2A3D8C2200206535 /* Services */,
-				4ACC87B92A3D8A6600206535 /* Assets.xcassets */,
+				4ACC87E82A40569700206535 /* Helpers */,
 				4ACC87BB2A3D8A6600206535 /* LaunchScreen.storyboard */,
 				4ACC87BE2A3D8A6600206535 /* Info.plist */,
 				4ACC87B62A3D8A6500206535 /* VKApplication.xcdatamodeld */,
@@ -142,6 +141,15 @@
 				4ACC87D92A3D986800206535 /* NewsFeedInteractor.swift */,
 			);
 			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		4ACC87E82A40569700206535 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4ACC87E62A40541500206535 /* WebImageView.swift */,
+				4ACC87B92A3D8A6600206535 /* Assets.xcassets */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C41AA8631700A0442897D60F /* Frameworks */ = {
@@ -269,7 +277,6 @@
 				4ACC87DE2A3D986900206535 /* NewsFeedModels.swift in Sources */,
 				4ACC87C72A3D8BA100206535 /* News.swift in Sources */,
 				4ACC87DC2A3D986900206535 /* NewsFeedWorker.swift in Sources */,
-				4ACC87B22A3D8A6500206535 /* ViewController.swift in Sources */,
 				4ACC87AE2A3D8A6500206535 /* AppDelegate.swift in Sources */,
 				4ACC87DB2A3D986800206535 /* NewsFeedPresenter.swift in Sources */,
 				4ACC87C92A3D8BF100206535 /* PostModel.swift in Sources */,
@@ -279,6 +286,7 @@
 				4ACC87E02A3D986900206535 /* NewsFeedInteractor.swift in Sources */,
 				4ACC87D22A3D8C7E00206535 /* AuthService.swift in Sources */,
 				4ACC87D02A3D8C6700206535 /* DataFetcher.swift in Sources */,
+				4ACC87E72A40541500206535 /* WebImageView.swift in Sources */,
 				4ACC87C52A3D8B5B00206535 /* AuthViewController.swift in Sources */,
 				4ACC87B02A3D8A6500206535 /* SceneDelegate.swift in Sources */,
 				4ACC87E32A3D98B000206535 /* NewsFeedTableViewCell.swift in Sources */,

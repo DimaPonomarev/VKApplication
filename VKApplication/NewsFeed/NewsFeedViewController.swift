@@ -9,20 +9,11 @@
 import UIKit
 import SnapKit
 
-protocol ViewModelProtocol {
-    var userNameLabel: String { get }
-    var imageFeed: String { get }
-    var dateLabel: String { get }
-    var descriptionLabel: String { get }
-    var numberOfLikes: Int { get }
-    var numberOfComments: Int { get }
-    var numberOfShares: Int { get }
-    var numberOfSeen: Int { get }
-}
-
 protocol NewsFeedDisplayLogic: AnyObject {
     func displayData(viewModel: NewsFeed.Model.ViewModel.ViewModelData)
 }
+
+//MARK: - class NewsFeedViewController
 
 class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
     
@@ -30,13 +21,12 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
     var router: (NSObjectProtocol & NewsFeedRoutingLogic)?
     
     var cellViewModel = FeedCell.init(cell: [])
-
     
     //MARK: - UI properties
-
+    
     let tableView = UITableView()
     
-    // MARK: Setup
+    // MARK: - Setup
     
     private func setup() {
         
@@ -44,11 +34,11 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
         asembly.setup(viewController: self)
     }
     
-    // MARK: Routing
+    // MARK: - Routing
     
     
     
-    // MARK: View lifecycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +47,7 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
         setupTableView()
         makeConstraints()
         interactor?.makeRequest(request: NewsFeed.Model.Request.RequestType.getData)
-
+        
     }
     
     //    MARK: - addViews
@@ -75,7 +65,7 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
         tableView.dataSource = self
         tableView.register(NewsFeedTableViewCell.self, forCellReuseIdentifier: NewsFeedTableViewCell.identifier)
     }
-
+    
     
     //    MARK: - makeConstraints
     
@@ -85,16 +75,19 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
         }
     }
     
+    //    MARK: - getting data from Presenter in needed format
+
     func displayData(viewModel: NewsFeed.Model.ViewModel.ViewModelData) {
         switch viewModel {
-
+            
         case .showNewsFeed(viewModel: let viewModel):
             cellViewModel = viewModel
             tableView.reloadData()
-            }
+        }
     }
 }
 
+//    MARK: - extension UITableViewDataSource, UITableViewDelegate
 
 extension NewsFeedViewController: UITableViewDataSource {
     
@@ -104,8 +97,8 @@ extension NewsFeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedTableViewCell.identifier) as? NewsFeedTableViewCell else { return UITableViewCell() }
-        let model = cellViewModel.cell[indexPath.row]
-        cell.configureView(model)
+        let itemModel = cellViewModel.cell[indexPath.row]
+        cell.configureView(itemModel)
         return cell
     }
 }

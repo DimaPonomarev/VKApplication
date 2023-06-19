@@ -35,21 +35,15 @@ class AuthViewController: UIViewController, AppDelegateProtool {
     
     @objc func click() {
         authService.wakeUpSession()
-        print(#function)
-
     }
     
     func openVKAuthViewController(_ viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
-        print(#function)
-
     }
     
     func openFeedViewController() {
         let nextVC = NewsFeedViewController()
         navigationController?.pushViewController(nextVC, animated: true)
-        print(#function)
-
     }
     
     

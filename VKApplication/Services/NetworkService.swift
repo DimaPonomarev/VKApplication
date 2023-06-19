@@ -19,6 +19,9 @@ final class NetworkService: Networking {
         self.authService = authService
     }
     
+    //MARK: - make request to network with own accessToken and url skeleton
+    
+    
     func request(path: String, params: [String : String], completion: @escaping (Data?, Error?) -> Void) {
         guard let token = authService.token else { return }
         var allParams = params
@@ -30,6 +33,8 @@ final class NetworkService: Networking {
         task.resume()
     }
     
+    //MARK: - createDataTask
+    
     private func createDataTask(from request: URLRequest, completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
         return URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             DispatchQueue.main.async {
@@ -37,6 +42,8 @@ final class NetworkService: Networking {
             }
         })
     }
+    
+    //MARK: - make a url skeleton
     
     private func url(from path: String, params: [String: String]) -> URL {
         var components = URLComponents()
@@ -46,5 +53,4 @@ final class NetworkService: Networking {
         components.queryItems = params.map {  URLQueryItem(name: $0, value: $1) }
         return components.url!
     }
-    
 }
